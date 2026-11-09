@@ -1,0 +1,259 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><title>FitFuel – Fitness & Nutrition Guide</title>
+
+<style>
+:root{--bg:#FBF6EE;--card:#fff;--ink:#2B2118;--mut:#7A6E64;--or:#FF7A1A;--or2:#FFA24D;--gray:#F3F1EE;--line:#EADFD0;--sh:0 10px 34px rgba(120,80,30,.09);color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media(prefers-color-scheme:dark){:root:not([data-theme=light]){--bg:#1D1813;--card:#292119;--ink:#F6EEE4;--mut:#B6A797;--gray:#342B22;--line:#42362B;--sh:0 10px 34px rgba(0,0,0,.35);color-scheme:dark}}
+:root[data-theme=dark]{--bg:#1D1813;--card:#292119;--ink:#F6EEE4;--mut:#B6A797;--gray:#342B22;--line:#42362B;--sh:0 10px 34px rgba(0,0,0,.35);color-scheme:dark}
+html{scroll-padding-top:env(safe-area-inset-top,0px);height:100%}
+*{box-sizing:border-box}
+body{margin:0;min-height:100%;background:var(--bg);color:var(--ink);font:400 16px/1.55 "Plus Jakarta Sans",system-ui,-apple-system,"Segoe UI",sans-serif}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--card);z-index:30}
+h1,h2,h3{line-height:1.15;margin:0 0 .4em;letter-spacing:-.02em}h1{font-size:clamp(2.2rem,6vw,3.8rem);font-weight:800}h2{font-size:clamp(1.6rem,3.4vw,2.2rem);font-weight:800}h3{font-size:1.1rem;font-weight:700}
+p{margin:0 0 .8em}.mu{color:var(--mut);font-size:.92rem}.w{max-width:1120px;margin:auto;padding:0 20px}
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--card);box-shadow:0 2px 20px rgba(120,80,30,.07)}
+.hd2{display:flex;align-items:center;gap:18px;padding:12px 20px;max-width:1120px;margin:auto}
+.logo{font-weight:800;font-size:1.25rem;cursor:pointer;white-space:nowrap}.logo b{color:var(--or)}
+nav{display:flex;gap:4px;overflow-x:auto;scrollbar-width:none;flex:1}
+nav a{padding:8px 14px;border-radius:99px;color:var(--mut);font-weight:600;font-size:.9rem;cursor:pointer;white-space:nowrap;transition:.2s}
+nav a:hover{background:var(--gray);color:var(--ink)}nav a.on{background:var(--or);color:#fff}
+.b,.b2{border:0;border-radius:99px;padding:13px 24px;font:700 .95rem inherit;font-family:inherit;cursor:pointer;transition:.2s;display:inline-block}
+.b{background:linear-gradient(135deg,var(--or),var(--or2));color:#fff;box-shadow:0 8px 20px rgba(255,122,26,.3)}.b:hover{transform:translateY(-2px);box-shadow:0 12px 26px rgba(255,122,26,.4)}
+.b2{background:var(--gray);color:var(--ink)}.b2:hover{background:var(--line)}.b:active,.b2:active{transform:scale(.96)}
+.c{background:var(--card);border-radius:28px;box-shadow:var(--sh);padding:22px;transition:transform .25s,box-shadow .25s}
+.c.h{cursor:pointer}.c.h:hover{transform:translateY(-5px)}
+.g{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:18px}
+.sec{padding:44px 0}.ic{width:52px;height:52px;border-radius:18px;background:#FFEBD9;display:grid;place-items:center;font-size:1.6rem;margin-bottom:14px}
+.hero{display:grid;grid-template-columns:1.1fr .9fr;gap:30px;align-items:center;padding:50px 0 20px}
+.hv{background:linear-gradient(160deg,#FFEBD9,var(--card));border-radius:40px;padding:18px;text-align:center;box-shadow:var(--sh)}
+.hv svg{width:100%;max-height:340px}.row{display:flex;gap:10px;align-items:center;flex-wrap:wrap}.sp{justify-content:space-between}
+.tag{background:#FFEBD9;color:#C85A00;border-radius:99px;padding:3px 12px;font-size:.8rem;font-weight:700}
+.chip{border:1.5px solid var(--line);background:var(--card);color:var(--ink);border-radius:99px;padding:8px 16px;font:600 .85rem inherit;font-family:inherit;cursor:pointer;transition:.2s}
+.chip:hover{border-color:var(--or)}.chip.on{background:var(--or);border-color:var(--or);color:#fff}
+input,select{font:inherit;color:var(--ink);background:var(--card);border:1.5px solid var(--line);border-radius:16px;padding:12px 16px;width:100%;outline:0;transition:.2s}
+input:focus,select:focus,button:focus-visible,a:focus-visible{border-color:var(--or);box-shadow:0 0 0 3px rgba(255,122,26,.25);outline:0}
+.mini{width:100%;height:auto;background:var(--gray);border-radius:20px;margin-bottom:12px;display:block}
+svg .l{fill:none;stroke:var(--or);stroke-width:8;stroke-linecap:round;stroke-linejoin:round}svg .tl{stroke:var(--ink);stroke-width:10;stroke-linecap:round}
+svg .hd{fill:var(--card);stroke:var(--ink);stroke-width:5}svg .fl{stroke:var(--line);stroke-width:5;stroke-linecap:round}svg .eq{stroke:var(--mut);stroke-width:5;stroke-linecap:round}
+.hr{border:0;background:none;font-size:1.3rem;cursor:pointer;color:var(--or);transition:.2s;padding:2px 6px}.hr:hover{transform:scale(1.25)}
+.tiles{display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:12px;margin-bottom:24px}
+.tile{padding:18px 10px;text-align:center;border-radius:24px;background:var(--card);box-shadow:var(--sh);cursor:pointer;font-weight:700;border:2px solid transparent;transition:.2s}
+.tile:hover{transform:translateY(-3px)}.tile.on{border-color:var(--or);background:#FFEBD9;color:#8A3E00}.tile span{display:block;font-size:1.8rem}
+.bar{height:12px;background:var(--gray);border-radius:99px;overflow:hidden}.bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--or),var(--or2));border-radius:99px;transition:width 1.1s cubic-bezier(.2,.8,.2,1)}
+.big{font-size:2.4rem;font-weight:800;color:var(--or);line-height:1}
+.mac{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;text-align:center;font-size:.78rem;color:var(--mut);margin:10px 0}.mac b{display:block;color:var(--ink);font-size:.95rem}
+.stp{display:inline-flex;align-items:center;gap:8px}.stp button{width:32px;height:32px;border-radius:50%;border:0;background:var(--gray);color:var(--ink);font-size:1.1rem;cursor:pointer}.stp button:hover{background:var(--or);color:#fff}
+.ov{position:fixed;inset:0;background:rgba(40,25,10,.5);z-index:40;display:flex;align-items:flex-start;justify-content:center;overflow-y:auto;padding:max(20px,env(safe-area-inset-top,0px)) 14px 30px;animation:fi .2s}
+.m{background:var(--bg);border-radius:32px;max-width:760px;width:100%;padding:24px;animation:up .3s}
+.mt{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:10px;margin:14px 0}.mt div{background:var(--card);border-radius:18px;padding:10px 14px;font-size:.85rem;color:var(--mut)}.mt b{display:block;color:var(--ink);font-size:.95rem}
+.pv{background:var(--card);border-radius:28px;padding:14px;box-shadow:var(--sh)}.pv svg{background:var(--gray);border-radius:20px;width:100%;display:block}
+.lab{font-weight:700;color:var(--or);margin:10px 0 2px}
+ol,ul{padding-left:20px}li{margin-bottom:6px}
+.cta{background:linear-gradient(135deg,var(--or),var(--or2));color:#fff;border-radius:40px;padding:48px 28px;text-align:center}.cta .b{background:#fff;color:#C85A00;box-shadow:none}
+.pg{animation:up .45s}@keyframes up{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}@keyframes fi{from{opacity:0}to{opacity:1}}
+.f2{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px}label{font-weight:600;font-size:.85rem;display:block;margin-bottom:4px}
+footer{text-align:center;color:var(--mut);padding:40px 20px;font-size:.85rem}
+@media(max-width:760px){.hero{grid-template-columns:1fr}.hd2{gap:8px}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style></head><body>
+<header><div class="hd2"><div class="logo" data-go="home">Fit<b>Fuel</b></div><nav id="nav"></nav></div></header>
+<main class="w" id="app"></main>
+<footer>FitFuel offers general fitness and nutrition information, not medical advice. Food values are approximate. Check with a doctor before starting a new programme.</footer>
+<div id="mo"></div>
+<script>
+const $=(s,e=document)=>e.querySelector(s);
+// ---------- storage ----------
+let S={f:{e:[],d:[]},log:[],goal:{k:2000,p:120,c:250,f:65},plan:-1};
+try{const r=localStorage.getItem("ff1");if(r)S=Object.assign(S,JSON.parse(r))}catch(e){}
+const save=()=>{try{localStorage.setItem("ff1",JSON.stringify(S))}catch(e){}};
+// ---------- movement templates ----------
+// [startName,endName,[keyframe poses: head,shoulder,hip,knee,ankle,elbow,wrist(,knee2,ankle2)],steps,mistake,tip,extra svg]
+const ST="150,40,150,60,150,110,150,140,150,170,";
+const T={
+squat:["Standing tall","Bottom position",[ST+"168,75,188,70","168,68,160,88,125,135,175,135,150,170,178,100,195,92"],["Stand with feet shoulder-width apart, chest up and core braced.","Push your hips back and bend your knees, lowering until thighs are about parallel.","Drive through your heels to stand tall, squeezing your glutes."],"Knees caving in, heels lifting or the lower back rounding.","Keep your chest proud and knees tracking over your toes."],
+pushup:["Plank position","Bottom position",["60,92,80,100,150,125,200,145,250,164,80,135,80,168","60,140,80,145,150,150,200,157,250,164,105,158,80,168"],["Place hands under shoulders and make one straight line from head to heels.","Lower your chest toward the floor with elbows about 45° from your body.","Press the floor away until your arms are straight."],"Sagging hips or flaring the elbows wide.","Squeeze glutes and abs so your body stays rigid like a plank."],
+bench:["Arms extended","Bar at chest",["70,150,90,150,160,152,200,125,215,168,92,125,92,95","70,150,90,150,160,152,200,125,215,168,118,140,95,128"],["Lie back with feet flat and shoulder blades pinched together.","Lower the weight under control to mid-chest.","Press up powerfully until your arms are straight above your chest."],"Bouncing the weight or lifting the hips off the bench.","Keep wrists stacked over elbows and shoulders pulled back."],
+curl:["Arms extended","Curled up",[ST+"152,88,155,112",ST+"160,88,172,62"],["Stand tall holding the weight with arms by your sides.","Curl up, keeping elbows pinned to your ribs.","Lower slowly over about three seconds."],"Swinging the torso or letting the elbows drift forward.","Pause for a moment at the top and squeeze the biceps."],
+press:["Rack position","Overhead lockout",[ST+"168,85,160,55",ST+"152,32,152,5"],["Hold the weight at shoulder height, core tight.","Press straight up until your arms are fully extended overhead.","Lower slowly back to shoulder height."],"Over-arching the lower back or pressing out in front.","Squeeze glutes and ribs down to keep your torso stacked."],
+raise:["Arms down","Arm raised",[ST+"152,88,155,112",ST+"172,64,202,62"],["Stand tall with a light weight in hand and a soft elbow bend.","Raise your arm to shoulder height with control.","Lower slowly without letting the weight drop."],"Using momentum or shrugging the shoulders up.","Go lighter than you think — control beats weight."],
+row:["Arms hanging","Pulled to torso",["88,75,105,85,150,105,155,138,150,170,110,125,112,152","88,75,105,85,150,105,155,138,150,170,135,100,118,112"],["Hinge at the hips with a flat back and a slight knee bend.","Pull the weight toward your lower ribs, squeezing your shoulder blades.","Lower under control until your arms are straight."],"Rounding the back or jerking the weight up.","Lead with the elbows and keep your neck neutral."],
+pull:["Dead hang","Chin over bar",["152,42,150,62,150,112,150,142,150,170,143,42,142,16","152,16,150,38,150,88,150,118,150,146,160,40,142,16"],["Grip the bar slightly wider than shoulders and hang with active shoulders.","Pull your elbows down toward your hips until your chin clears the bar.","Lower slowly to a full hang."],"Kipping, half reps or shrugging the shoulders.","Use a band or lat pulldown to build up to full reps.","<line class=eq x1=105 y1=16 x2=195 y2=16 />"],
+fold:["Standing","Folded forward",[ST+"150,88,150,108","92,112,105,98,150,108,152,140,150,170,112,128,118,158"],["Stand tall with feet hip-width apart.","Hinge at the hips and fold forward, keeping your back long.","Hold, breathe slowly, then roll up one vertebra at a time."],"Bouncing or forcing the stretch with a rounded back.","Soften your knees — feel the stretch in the hamstrings, not the back."],
+dip:["Arms straight","Lowered",["148,40,148,60,152,110,190,125,200,168,140,82,140,104","148,66,148,86,152,135,190,140,200,168,128,100,140,104"],["Support yourself on a bench or bars with shoulders down.","Bend your elbows to about 90°, keeping them close to your body.","Press up until your arms are straight."],"Shoulders rolling forward or dropping too deep.","Keep your chest up and elbows pointing back."],
+pushdown:["Arms bent","Arms straight",[ST+"152,88,172,70",ST+"152,88,155,118"],["Stand tall, elbows tucked against your sides.","Press the handle down until your arms are fully straight.","Return slowly until the forearms are just past parallel."],"Letting the elbows flare or leaning over the weight.","Only the forearms should move."],
+ohe:["Weight behind head","Arms extended",[ST+"152,30,138,52",ST+"152,30,152,2"],["Hold the weight overhead with elbows pointing forward.","Lower it behind your head by bending only at the elbows.","Extend your arms back to the top."],"Flaring the elbows or arching the back.","Keep your biceps close to your ears."],
+crunch:["Lying down","Curled up",["88,155,100,160,150,165,190,130,220,168,92,148,98,142","110,118,118,135,150,165,190,130,220,168,108,118,115,122"],["Lie on your back, knees bent, hands lightly by your head.","Curl your ribs toward your hips, lifting your shoulder blades.","Lower with control without dropping your head."],"Pulling on the neck or using momentum.","Exhale as you curl up and keep your chin off your chest."],
+bridge:["Hips down","Hips lifted",["65,165,80,165,140,165,190,128,205,168,100,165,120,165","65,165,80,155,140,118,190,128,205,168,100,165,120,165"],["Lie back with knees bent and feet flat, hip-width apart.","Drive through your heels to lift your hips until your body forms a line.","Squeeze your glutes at the top, then lower slowly."],"Over-arching the lower back or pushing through the toes.","Tuck your ribs and finish with a hard glute squeeze."],
+plank:["Forearm plank","Breathing hold",["62,115,80,125,150,130,200,148,250,164,80,165,110,165","62,113,80,125,150,122,200,143,250,164,80,165,110,165"],["Place your forearms under your shoulders and extend your legs.","Brace your core and squeeze your glutes to keep a straight line.","Breathe steadily and hold."],"Sagging hips or lifting them too high.","Pull your elbows toward your toes to fire up the core."],
+legraise:["Legs flat","Legs vertical",["60,160,80,160,150,162,200,162,250,162,100,162,120,162","60,160,80,160,150,162,150,112,150,62,100,162,120,162"],["Lie on your back with hands under your hips.","Lift straight legs until they are vertical.","Lower slowly, stopping just above the floor."],"Arching the lower back as legs lower.","Bend your knees slightly to make it easier."],
+lunge:["Standing","Lunge bottom",[ST+"150,88,150,108,150,140,150,170","150,64,150,84,150,135,185,135,185,170,150,108,150,128,125,160,95,168"],["Stand tall, then step one foot well forward.","Lower until both knees are bent about 90°.","Push through the front heel to return to standing."],"Front knee collapsing inward or a step that is too short.","Keep your torso upright and the front heel planted."],
+legpress:["Knees bent","Legs extended",["55,125,70,135,110,155,150,130,190,150,95,140,115,150","55,125,70,135,110,155,145,122,180,92,95,140,115,150"],["Sit back with feet shoulder-width on the plate.","Press the plate away without locking your knees.","Lower until knees are near 90°."],"Locking out the knees or lifting the hips.","Keep your lower back flat against the pad."],
+legcurl:["Legs straight","Heels to glutes",["75,155,90,160,150,162,200,162,250,162,100,150,110,150","75,155,90,160,150,162,200,162,200,115,100,150,110,150"],["Lie face down with the pad just above your heels.","Curl your heels toward your glutes.","Lower slowly until legs are almost straight."],"Lifting the hips or swinging the weight.","Control the lowering phase."],
+calf:["Flat feet","Up on toes",[ST+"150,88,150,108","150,28,150,48,150,98,150,128,150,158,150,76,150,96"],["Stand tall with feet hip-width apart.","Rise as high as you can on your toes.","Pause, then lower slowly."],"Bouncing or rolling the ankles outward.","Hold the top position for one second."],
+run:["Stride left","Stride right",["150,40,155,60,150,110,175,125,160,155,135,85,120,100,130,140,105,160","150,40,155,60,150,110,130,140,105,160,170,85,185,100,175,125,160,155"],["Stand tall with a slight forward lean.","Drive knees up and swing opposite arms.","Land softly under your hips and keep a steady rhythm."],"Overstriding or hunching the shoulders.","Keep a pace where you can still talk."],
+burpee:["Standing","Plank",[ST+"150,88,150,108","130,95,135,105,110,140,150,130,140,170,150,135,165,168","60,92,80,100,150,125,200,145,250,164,80,135,80,168"],["Stand, then squat and place your hands on the floor.","Jump or step your feet back into a plank.","Return your feet in and stand or jump up."],"Letting the hips sag in the plank.","Step instead of jump to scale it down."]};
+for(const k in T){T[k].q=T[k][2].map(s=>{const a=s.split(",").map(Number),r=[];for(let i=0;i<a.length;i+=2)r.push([a[i],a[i+1]]);return r})}
+function draw(svg,k,c){const t=T[k],Q=t.q,n=Q.length;let p,s;
+if(c<.1){p=0;s=0}else if(c<.45){p=(c-.1)/.35;s=1}else if(c<.55){p=1;s=2}else if(c<.9){p=1-(c-.55)/.35;s=3}else{p=0;s=4}
+p=p*p*(3-2*p);const f=p*(n-1),i=Math.min(Math.floor(f),n-2),u=f-i;
+const X=Q[i].map((a,j)=>{const b=Q[i+1][j];return[(a[0]+(b[0]-a[0])*u).toFixed(1),(a[1]+(b[1]-a[1])*u).toFixed(1)]});
+const[h,sh,hp,kn,an,el,wr,k2,a2]=X;
+svg.innerHTML=`<line class=fl x1=10 y1=174 x2=290 y2=174 />${t[7]||(k=="bench"?"<line class=eq x1=55 y1=158 x2=185 y2=158 />":"")}`+(k2?`<polyline class=l points="${hp} ${k2} ${a2}"/>`:"")+`<line class=tl x1=${sh[0]} y1=${sh[1]} x2=${hp[0]} y2=${hp[1]} /><polyline class=l points="${hp} ${kn} ${an}"/><polyline class=l points="${sh} ${el} ${wr}"/><circle class=hd cx=${h[0]} cy=${h[1]} r=12 />`;return s}
+const stepName=(t,s)=>[t[0],"Moving to: "+t[1],t[1],"Returning to: "+t[0],t[0]][s];
+// ---------- data ----------
+const CATS=["Chest","Back","Shoulders","Biceps","Triceps","Legs","Glutes","Abs / Core","Cardio","Full Body","Mobility","Stretching"];
+const E=`Push-ups|Chest|Pectorals|Triceps, front delts|Beginner|None|3|8–15|60s|70|pushup
+Bench Press|Chest|Pectorals|Triceps, front delts|Intermediate|Barbell, bench|4|6–10|90s|60|bench
+Incline Press|Chest|Upper chest|Shoulders, triceps|Intermediate|Dumbbells, incline bench|3|8–12|90s|60|bench
+Chest Fly|Chest|Pectorals|Front delts|Beginner|Dumbbells or cable|3|10–15|60s|45|bench
+Pull-ups|Back|Lats|Biceps, rear delts|Advanced|Pull-up bar|3|5–10|90s|80|pull
+Lat Pulldown|Back|Lats|Biceps, rhomboids|Beginner|Cable machine|3|10–12|75s|55|pull
+Bent-over Row|Back|Mid back|Lats, biceps|Intermediate|Barbell or dumbbells|4|8–12|90s|65|row
+Seated Cable Row|Back|Mid back|Lats, biceps|Beginner|Cable machine|3|10–12|75s|55|row
+Shoulder Press|Shoulders|Front and side delts|Triceps, upper chest|Intermediate|Dumbbells|3|8–12|90s|60|press
+Lateral Raise|Shoulders|Side delts|Traps|Beginner|Light dumbbells|3|12–15|45s|40|raise
+Front Raise|Shoulders|Front delts|Upper chest|Beginner|Light dumbbells|3|12–15|45s|40|raise
+Rear Delt Fly|Shoulders|Rear delts|Rhomboids|Beginner|Dumbbells|3|12–15|45s|40|row
+Dumbbell Curl|Biceps|Biceps|Forearms|Beginner|Dumbbells|3|10–12|60s|40|curl
+Hammer Curl|Biceps|Brachialis|Biceps, forearms|Beginner|Dumbbells|3|10–12|60s|40|curl
+Barbell Curl|Biceps|Biceps|Forearms|Intermediate|Barbell|3|8–12|60s|45|curl
+Tricep Pushdown|Triceps|Triceps|Forearms|Beginner|Cable machine|3|10–15|60s|45|pushdown
+Overhead Extension|Triceps|Triceps long head|Shoulders|Beginner|Dumbbell|3|10–12|60s|40|ohe
+Dips|Triceps|Triceps|Chest, front delts|Intermediate|Parallel bars or bench|3|8–12|75s|65|dip
+Squats|Legs|Quads|Glutes, hamstrings, core|Beginner|Bodyweight or barbell|4|8–12|90s|75|squat
+Lunges|Legs|Quads|Glutes, hamstrings|Beginner|Bodyweight or dumbbells|3|10 each leg|60s|70|lunge
+Leg Press|Legs|Quads|Glutes, hamstrings|Beginner|Leg press machine|4|10–12|90s|65|legpress
+Leg Curl|Legs|Hamstrings|Calves|Beginner|Machine|3|10–15|60s|45|legcurl
+Calf Raises|Legs|Calves|Ankle stabilisers|Beginner|Bodyweight or step|4|15–20|45s|40|calf
+Hip Thrust|Glutes|Glutes|Hamstrings, core|Intermediate|Bench, barbell|4|8–12|90s|60|bridge
+Glute Bridge|Glutes|Glutes|Hamstrings, core|Beginner|Bodyweight|3|12–20|45s|45|bridge
+Bulgarian Split Squat|Glutes|Glutes, quads|Hamstrings, core|Advanced|Bench, dumbbells|3|8–10 each leg|75s|75|lunge
+Crunches|Abs / Core|Rectus abdominis|Obliques|Beginner|None|3|15–20|45s|40|crunch
+Planks|Abs / Core|Core|Shoulders, glutes|Beginner|None|3|30–60 s hold|45s|35|plank
+Leg Raises|Abs / Core|Lower abs|Hip flexors|Intermediate|None|3|10–15|45s|45|legraise
+Bicycle Crunches|Abs / Core|Obliques|Rectus abdominis|Beginner|None|3|20 total|45s|50|crunch
+Running|Cardio|Heart and legs|Glutes, calves, core|Beginner|Running shoes|1|20–30 min|None|110|run
+High Knees|Cardio|Heart and hip flexors|Quads, core|Beginner|None|4|30 s|30s|100|run
+Burpees|Full Body|Whole body|Chest, quads, core|Intermediate|None|4|8–12|60s|120|burpee
+Deep Squat Hold|Mobility|Hips and ankles|Quads, adductors|Beginner|None|3|30 s hold|30s|25|squat
+Hamstring Stretch|Stretching|Hamstrings|Lower back, calves|Beginner|None|3|30 s hold|20s|20|fold`.split("\n").map(r=>r.split("|"));
+const FD=`Roti (chapati)|1 medium (40 g)|104|3.1|18|2.5|2.7
+Cooked rice|1 cup (158 g)|205|4.3|45|0.4|0.6
+Dal (cooked)|1 cup (200 g)|198|11|33|3|8
+Paneer|100 g|265|18|1.2|21|0
+Chicken breast, cooked|100 g|165|31|0|3.6|0
+Boiled egg|1 large|78|6.3|0.6|5.3|0
+Milk, whole|1 cup (244 ml)|122|8|12|5|0
+Curd (dahi)|1 cup (245 g)|149|8.5|11.4|8|0
+Oats|40 g dry|152|5|27|2.6|4
+Banana|1 medium|105|1.3|27|0.4|3.1
+Apple|1 medium|95|0.5|25|0.3|4.4
+Potato, boiled|1 medium (150 g)|130|3|30|0.2|3
+Sweet potato|1 medium (130 g)|112|2|26|0.1|4
+Mixed vegetables|1 cup (150 g)|65|3|13|0.3|4
+Almonds|28 g (23 nuts)|164|6|6|14|3.5
+Peanuts|28 g|161|7|4.6|14|2.4
+Peanut butter|1 tbsp (16 g)|94|4|3|8|1
+Bread, whole wheat|1 slice|81|4|14|1.1|1.9
+Poha|1 cup (150 g)|180|3.5|33|3.5|2
+Upma|1 cup (200 g)|230|5|34|8|3
+Idli|2 pieces|130|4|27|0.6|1.5
+Plain dosa|1 medium|133|3|22|3.7|1
+Samosa|1 piece (60 g)|250|4|24|16|2
+Plain paratha|1 medium|250|5|34|10|3
+Chicken biryani|1 cup (250 g)|290|14|38|9|2
+Chole (chickpea curry)|1 cup|270|13|40|7|10
+Rajma|1 cup|240|13|38|3|10
+Chicken curry|1 cup|240|22|7|14|2
+Grilled fish|100 g|140|24|0|4|0
+Greek yogurt|170 g|100|17|6|0.7|0
+Orange|1 medium|62|1.2|15|0.2|3
+Mango|1 cup (165 g)|99|1.4|25|0.6|2.6
+Quinoa, cooked|1 cup|222|8|39|3.6|5
+Pasta, cooked|1 cup|220|8|43|1.3|2.5
+Pizza|1 slice|285|12|36|10|2.5`.split("\n").map(r=>{const a=r.split("|");return[a[0],a[1],...a.slice(2).map(Number)]});
+const PL=[["Beginner Full Body","3 days a week · 45 min",["Mon: Squats, Push-ups, Seated Cable Row, Planks","Wed: Lunges, Shoulder Press, Lat Pulldown, Crunches","Fri: Glute Bridge, Chest Fly, Dumbbell Curl, Leg Raises","Tue, Thu, Sat: 30 minute walk","Sun: Rest and Hamstring Stretch"]],
+["Push / Pull / Legs","5 days a week · 60 min",["Mon Push: Bench Press, Shoulder Press, Dips, Pushdowns","Tue Pull: Pull-ups, Rows, Curls, Rear Delt Fly","Wed Legs: Squats, Leg Press, Leg Curl, Calf Raises","Thu Push and Fri Pull: repeat with lighter volume","Sat Legs and core · Sun Rest"]],
+["Fat-Loss Circuit","4 days a week · 40 min",["Mon: 4 rounds of Burpees, Squats, Push-ups, Planks","Tue: 30 minute Running, easy pace","Thu: 4 rounds of Lunges, High Knees, Rows, Crunches","Sat: Intervals, 8 × 30 s High Knees","Wed, Fri, Sun: walk and stretch"]]];
+const TIPS=[["💧","Drink water first","Aim for 2–3 litres a day. Thirst is often mistaken for hunger."],["🍗","Protein at every meal","Dal, paneer, eggs, curd or chicken help you recover and stay full."],["🌈","Eat the rainbow","Fill half your plate with vegetables and fruit for fibre and vitamins."],["⏰","Don’t skip breakfast","A protein-rich start such as eggs, besan chilla or oats keeps energy steady."],["🍚","Watch portions, not foods","Rice and roti are fine. Measure your servings and you stay in control."],["😴","Sleep 7–9 hours","Poor sleep raises cravings and slows muscle recovery."]];
+// ---------- helpers ----------
+const A=(a,b)=>Math.round(a*b*10)/10;
+const hrt=(t,i)=>`<button class=hr data-t=${t} data-i=${i} aria-label="Favourite">${S.f[t].includes(i)?"♥":"♡"}</button>`;
+const exI=n=>E.findIndex(e=>e[0]==n);
+function exCard(i){const e=E[i];return`<div class="c h ex" data-i=${i}><svg class=mini viewBox="0 0 300 190" data-k=${e[10]}></svg><h3>${e[0]}</h3><p class=mu>${e[2]} · ${e[4]}</p><div class="row sp"><span class=tag>${e[6]} × ${e[7]}</span>${hrt("e",i)}</div></div>`}
+function fdCard(i){const f=FD[i];const v=(n,u)=>`<b><span class=v data-b=${f[n]}>${f[n]}</span>${u}</b>`;return`<div class=c data-fi=${i} data-q=1><div class="row sp"><h3>${f[0]}</h3>${hrt("d",i)}</div><p class=mu>${f[1]}</p><div class=big><span class=v data-b=${f[2]}>${f[2]}</span> <small style="font-size:.9rem">kcal</small></div><div class=mac><div>Protein${v(3,"g")}</div><div>Carbs${v(4,"g")}</div><div>Fat${v(5,"g")}</div><div>Fibre${v(6,"g")}</div></div><div class="row sp"><span class=stp><button data-s=-.5 aria-label="Less">−</button><b class=q>1</b>×<button data-s=.5 aria-label="More">+</button></span><button class="b2 add" style="padding:9px 16px">Add to today</button></div></div>`}
+function fill(el,fn,ids){el.innerHTML=ids.length?ids.map(fn).join(""):`<p class=mu>Nothing found. Try another search or category.</p>`}
+function counters(){document.querySelectorAll("[data-to]").forEach(el=>{const to=+el.dataset.to,t0=performance.now();(function f(t){const p=Math.min((t-t0)/900,1);el.textContent=Math.round(to*(1-Math.pow(1-p,3)));if(p<1)requestAnimationFrame(f)})(t0)});requestAnimationFrame(()=>requestAnimationFrame(()=>document.querySelectorAll(".bar i").forEach(i=>i.style.width=i.dataset.w+"%")))}
+const totals=()=>S.log.reduce((a,l)=>({k:a.k+l.k,p:a.p+l.p,c:a.c+l.c,f:a.f+l.f}),{k:0,p:0,c:0,f:0});
+// ---------- pages ----------
+const R={
+home(){const pop=["Push-ups","Squats","Planks","Burpees"].map(exI),pf=[0,3,5,9];
+const F=[["🏋️","Exercise Guide","35 exercises with animated demos.","exercises"],["🍛","Food & Calories","Indian and global foods with nutrition data.","foods"],["🔥","Calorie Calculator","Find your daily calorie target.","calc"],["🥗","Macro Calculator","Protein, carbs and fat for your goal.","calc"],["📅","Workout Plans","Ready weekly programmes.","plans"],["💡","Nutrition Tips","Simple habits that work.","plans"]];
+const W=[["✅","Easy-to-follow exercises"],["🍎","Simple nutrition information"],["🧮","Calorie and macro tools"],["🌱","Beginner-friendly guidance"],["🎯","Personalised fitness goals"],["📱","Mobile-friendly experience"]];
+return`<section class=hero><div><h1>Your Smarter Fitness & Nutrition Guide</h1><p class=mu style="font-size:1.1rem;max-width:520px">Help users discover exercises, understand nutrition, calculate calories, find healthy foods, create workout plans and reach their fitness goals.</p><div class=row style="margin-top:22px"><button class=b data-go=exercises>Explore Exercises</button><button class=b2 data-go=foods>Explore Nutrition</button></div></div><div class=hv><svg class=mini id=hero viewBox="0 0 300 190" data-k=squat style="background:transparent"></svg><span class=tag>Live demo: Squat</span></div></section>
+<section class=sec><div class=g>${F.map(f=>`<div class="c h" data-go=${f[3]}><div class=ic>${f[0]}</div><h3>${f[1]}</h3><p class=mu>${f[2]}</p></div>`).join("")}</div></section>
+<section class=sec><h2>Why Choose Us</h2><div class=g>${W.map(w=>`<div class="c row"><div class=ic style="margin:0">${w[0]}</div><b>${w[1]}</b></div>`).join("")}</div></section>
+<section class=sec><div class="row sp"><h2>Popular Exercises</h2><button class=b2 data-go=exercises>See all</button></div><div class=g>${pop.map(exCard).join("")}</div></section>
+<section class=sec><div class="row sp"><h2>Popular Foods</h2><button class=b2 data-go=foods>See all</button></div><div class=g>${pf.map(fdCard).join("")}</div></section>
+<section class=sec><div class=cta><h2>Start your fitness journey today</h2><p style="opacity:.9">Set your calorie goal, pick a plan and track every meal in one place.</p><button class=b data-go=calc>Calculate my calories</button></div></section>`},
+exercises(){return`<section class=sec><h1 style="font-size:2.4rem">Exercise Library</h1><p class=mu>Search 35 exercises. Select any card for the full animated guide.</p><input id=q placeholder="Search exercises, muscles or equipment" aria-label=Search><div class=row id=ch style="margin:16px 0"></div><div class=g id=gr></div></section>`},
+body(){const B=[["Chest","🏋️"],["Back","🧗"],["Shoulders","🤸"],["Biceps","💪"],["Triceps","🦾"],["Legs","🦵"],["Glutes","🔥"],["Abs / Core","🎯"]];
+return`<section class=sec><h1 style="font-size:2.4rem">Train by Body Part</h1><p class=mu>Choose a muscle group to see matching exercises with animated demonstrations.</p><div class=tiles>${B.map(b=>`<div class="tile${b[0]==bp?" on":""}" data-bp="${b[0]}"><span>${b[1]}</span>${b[0]}</div>`).join("")}</div><h2 id=bt></h2><div class=g id=gr></div></section>`},
+foods(){return`<section class=sec><h1 style="font-size:2.4rem">Food & Calorie Database</h1><p class=mu>Search ${FD.length} common foods. Change the serving amount to see the numbers update.</p><input id=q placeholder="Search foods, e.g. paneer, idli, banana" aria-label=Search style="margin-bottom:18px"><div class=g id=gr></div></section>`},
+calc(){return`<section class=sec><h1 style="font-size:2.4rem">Calorie & Macro Calculator</h1><div class=c><div class=f2><div><label>Age</label><input id=a type=number value=25></div><div><label>Sex</label><select id=s><option value=m>Male</option><option value=f>Female</option></select></div><div><label>Height (cm)</label><input id=h type=number value=170></div><div><label>Weight (kg)</label><input id=w type=number value=70></div><div><label>Activity</label><select id=ac><option value=1.2>Little or no exercise</option><option value=1.375>1–3 days a week</option><option value=1.55 selected>3–5 days a week</option><option value=1.725>6–7 days a week</option></select></div><div><label>Goal</label><select id=go><option value=-500>Lose fat</option><option value=0 selected>Maintain</option><option value=300>Build muscle</option></select></div></div><p></p><button class=b id=cb>Calculate</button></div><div id=res style="margin-top:20px"></div></section>`},
+plans(){return`<section class=sec><h1 style="font-size:2.4rem">Workout Plans</h1><div class=g>${PL.map((p,i)=>`<div class=c><h3>${p[0]}</h3><span class=tag>${p[1]}</span><ul style="margin:14px 0">${p[2].map(d=>`<li>${d}</li>`).join("")}</ul><button class="${S.plan==i?"b2":"b"} pl" data-i=${i}>${S.plan==i?"Active plan ✓":"Start this plan"}</button></div>`).join("")}</div></section><section class=sec><h2>Nutrition Tips</h2><div class=g>${TIPS.map(t=>`<div class=c><div class=ic>${t[0]}</div><h3>${t[1]}</h3><p class=mu>${t[2]}</p></div>`).join("")}</div></section>`},
+dash(){const t=totals(),g=S.goal,rem=Math.max(g.k-t.k,0);const bar=(n,v,m,u)=>`<div style="margin:14px 0"><div class="row sp"><b>${n}</b><span class=mu>${Math.round(v)} / ${m} ${u}</span></div><div class=bar><i data-w=${Math.min(100,v/m*100)}></i></div></div>`;
+const stat=(n,l)=>`<div class=c><div class=big data-to=${n}>0</div><p class=mu>${l}</p></div>`;
+return`<section class=sec><h1 style="font-size:2.4rem">Your Dashboard</h1><div class=g>${stat(Math.round(t.k),"kcal eaten today")}${stat(Math.round(rem),"kcal remaining")}${stat(S.f.e.length,"favourite exercises")}${stat(S.f.d.length,"favourite foods")}</div>
+<div class=g style="margin-top:18px;grid-template-columns:repeat(auto-fit,minmax(300px,1fr))"><div class=c><h3>Today’s progress</h3>${bar("Calories",t.k,g.k,"kcal")}${bar("Protein",t.p,g.p,"g")}${bar("Carbs",t.c,g.c,"g")}${bar("Fat",t.f,g.f,"g")}<a class=mu style="cursor:pointer;color:var(--or)" data-go=calc>Update my goal</a></div>
+<div class=c><h3>Food log</h3>${S.log.length?S.log.map((l,i)=>`<div class="row sp" style="margin:8px 0"><span>${l.n} <span class=mu>×${l.q}</span></span><span><b>${Math.round(l.k)}</b> kcal <button class=hr data-rm=${i} aria-label=Remove>✕</button></span></div>`).join(""):`<p class=mu>No meals yet. Add foods from the database.</p><button class=b data-go=foods>Browse foods</button>`}</div>
+<div class=c><h3>Active plan</h3>${S.plan>=0?`<b>${PL[S.plan][0]}</b><ul>${PL[S.plan][2].map(d=>`<li>${d}</li>`).join("")}</ul>`:`<p class=mu>No plan selected.</p><button class=b data-go=plans>Choose a plan</button>`}</div></div>
+<h2 style="margin-top:34px">Favourite exercises</h2><div class=g>${S.f.e.length?S.f.e.map(exCard).join(""):`<p class=mu>Tap ♡ on any exercise to save it here.</p>`}</div></section>`}};
+let bp="Chest",exQ="",exC="All";
+function after(r){
+if(r=="exercises"){const q=$("#q"),ch=$("#ch"),gr=$("#gr");const go=()=>{ch.innerHTML=["All",...CATS].map(c=>`<button class="chip${c==exC?" on":""}" data-c="${c}">${c}</button>`).join("");fill(gr,exCard,E.map((e,i)=>i).filter(i=>(exC=="All"||E[i][1]==exC)&&E[i].slice(0,6).join(" ").toLowerCase().includes(exQ)))};q.value=exQ;q.oninput=()=>{exQ=q.value.toLowerCase();go()};ch.onclick=e=>{const c=e.target.dataset.c;if(c){exC=c;go()}};go()}
+if(r=="body"){const gr=$("#gr");$("#bt").textContent=bp;fill(gr,exCard,E.map((e,i)=>i).filter(i=>E[i][1]==bp))}
+if(r=="foods"){const q=$("#q"),gr=$("#gr");const go=()=>fill(gr,fdCard,FD.map((f,i)=>i).filter(i=>FD[i][0].toLowerCase().includes(q.value.toLowerCase())));q.oninput=go;go()}
+if(r=="calc"){$("#cb").onclick=calc;if(S.calc)$("#res").innerHTML=S.calc}
+if(r=="dash")counters()}
+function calc(){const v=i=>+$("#"+i).value,w=v("w"),a=v("a"),h=v("h");if(!(w>0&&a>0&&h>0)){$("#res").innerHTML=`<div class=c>Enter your age, height and weight to continue.</div>`;return}
+const bmr=10*w+6.25*h-5*a+($("#s").value=="m"?5:-161),tdee=bmr*v("ac"),gl=v("go"),k=Math.max(1200,Math.round(tdee+gl)),p=Math.round(w*(gl<0?2:1.8)),f=Math.round(k*.25/9),c=Math.max(0,Math.round((k-p*4-f*9)/4)),bmi=w/Math.pow(h/100,2);
+const st=(n,l)=>`<div class=c><div class=big data-to=${n}>0</div><p class=mu>${l}</p></div>`;
+const html=`<div class=g>${st(Math.round(bmr),"BMR (kcal at rest)")}${st(Math.round(tdee),"Maintenance kcal")}${st(k,"Daily target kcal")}${st(Math.round(bmi*10)/10,"BMI")}</div><div class=g style="margin-top:18px">${st(p,"Protein (g)")}${st(c,"Carbs (g)")}${st(f,"Fat (g)")}<div class=c><p class=mu>Uses the Mifflin-St Jeor formula. Protein is set from body weight, fat at 25% of calories, carbs fill the rest.</p><button class=b id=sg>Save as my goal</button></div></div>`;
+$("#res").innerHTML=html;S.calc=html;counters();$("#sg").onclick=e=>{S.goal={k,p,c,f};save();e.target.textContent="Goal saved ✓"}}
+function nav(){const r=(location.hash.slice(1)||"home");const key=R[r]?r:"home";$("#app").innerHTML=`<div class=pg>${R[key]()}</div>`;
+if(key=="home")counters();after(key);window.scrollTo(0,0);
+$("#nav").innerHTML=[["home","Home"],["exercises","Exercises"],["body","Body Parts"],["foods","Foods"],["calc","Calculator"],["plans","Plans & Tips"],["dash","Dashboard"]].map(n=>`<a data-go=${n[0]} class="${n[0]==key?"on":""}">${n[1]}</a>`).join("")}
+addEventListener("hashchange",nav);
+// ---------- modal ----------
+let M=null;
+function openEx(i){const e=E[i],t=T[e[10]];
+$("#mo").innerHTML=`<div class=ov id=ov><div class=m role=dialog aria-label="${e[0]}"><div class="row sp"><div><h2 style="margin:0">${e[0]}</h2><span class=tag>${e[1]}</span></div><span>${hrt("e",i)}<button class=hr id=x aria-label=Close style="color:var(--ink)">✕</button></span></div>
+<div class=pv style="margin:14px 0"><svg id=bs viewBox="0 0 300 190"></svg><div class="row sp" style="margin-top:10px"><b id=ph class=lab style="margin:0"></b><span class=row><button class=b id=pp>Pause</button><button class=b2 id=rp>Replay</button><button class=b2 id=sl>Slow motion: off</button></span></div></div>
+<div class=mt><div>Target muscle<b>${e[2]}</b></div><div>Secondary<b>${e[3]}</b></div><div>Difficulty<b>${e[4]}</b></div><div>Equipment<b>${e[5]}</b></div><div>Sets<b>${e[6]}</b></div><div>Reps<b>${e[7]}</b></div><div>Rest<b>${e[8]}</b></div><div>Calories<b>~${e[9]} kcal / 10 min</b></div></div>
+<div class=lab>Step-by-step</div><ol>${t[3].map(s=>`<li>${s}</li>`).join("")}</ol><div class=lab>Common mistakes</div><p>${t[4]}</p><div class=lab>Correct-form tip</div><p>${t[5]}</p><div class=lab>Beginner tip</div><p>Start with bodyweight or a light load and move slowly. Quality reps first, then add weight.</p><div class=lab>Safety</div><p>Warm up for 5 minutes, breathe steadily and stop if you feel sharp pain.</p></div></div>`;
+M={k:e[10],c:0,pl:true,sp:1,svg:$("#bs"),t,ph:$("#ph")};
+const cl=()=>{M=null;$("#mo").innerHTML=""};$("#x").onclick=cl;$("#ov").onclick=ev=>{if(ev.target.id=="ov")cl()};
+$("#pp").onclick=ev=>{M.pl=!M.pl;ev.target.textContent=M.pl?"Pause":"Play"};
+$("#rp").onclick=()=>{M.c=0;M.pl=true;$("#pp").textContent="Pause"};
+$("#sl").onclick=ev=>{M.sp=M.sp==1?.35:1;ev.target.textContent="Slow motion: "+(M.sp==1?"off":"on")}}
+// ---------- events ----------
+document.addEventListener("click",ev=>{const t=ev.target;
+const go=t.closest("[data-go]");if(go){location.hash=go.dataset.go;return}
+const hr=t.closest(".hr[data-t]");if(hr){ev.stopPropagation();const a=S.f[hr.dataset.t],i=+hr.dataset.i,x=a.indexOf(i);x<0?a.push(i):a.splice(x,1);save();document.querySelectorAll(`.hr[data-t=${hr.dataset.t}][data-i="${i}"]`).forEach(b=>b.textContent=x<0?"♥":"♡");return}
+const rm=t.closest("[data-rm]");if(rm){S.log.splice(+rm.dataset.rm,1);save();nav();return}
+const bt=t.closest("[data-bp]");if(bt){bp=bt.dataset.bp;nav();return}
+const pl=t.closest(".pl");if(pl){S.plan=+pl.dataset.i;save();nav();return}
+const fc=t.closest("[data-fi]");
+if(fc){const f=FD[+fc.dataset.fi];let q=+fc.dataset.q;
+if(t.dataset.s){q=Math.max(.5,q+ +t.dataset.s);fc.dataset.q=q;fc.querySelector(".q").textContent=q;fc.querySelectorAll(".v").forEach(s=>s.textContent=A(+s.dataset.b,q))}
+else if(t.classList.contains("add")){S.log.push({n:f[0],q,k:f[2]*q,p:f[3]*q,c:f[4]*q,f:f[5]*q});save();t.textContent="Added ✓"}
+return}
+const ex=t.closest(".ex");if(ex)openEx(+ex.dataset.i)});
+// ---------- animation loop ----------
+let G=0,last=performance.now(),acc=0;
+function frame(t){const dt=t-last;last=t;G=(G+dt/4200)%1;acc+=dt;
+if(acc>40){acc=0;document.querySelectorAll("svg.mini").forEach(s=>{const r=s.getBoundingClientRect();if(r.bottom>0&&r.top<innerHeight)draw(s,s.dataset.k,G)})}
+if(M){if(M.pl)M.c=(M.c+dt*M.sp/4200)%1;const s=draw(M.svg,M.k,M.c);M.ph.textContent=`${s+1}/5 · ${stepName(M.t,s)}`}
+requestAnimationFrame(frame)}
+requestAnimationFrame(frame);nav();
+</script></body></html>
